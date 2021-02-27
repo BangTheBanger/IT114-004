@@ -3,9 +3,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class NumberGuesserPart2 {
+	
 	public static void main(String[] args) {
-		// there's a lot of repeated code and it's not the cleanest. We'll see later how
-		// to improve this
+
 		try (Scanner input = new Scanner(System.in);) {
 			
 			System.out.println("I picked a random number between 1-10, let's see if you can guess.");

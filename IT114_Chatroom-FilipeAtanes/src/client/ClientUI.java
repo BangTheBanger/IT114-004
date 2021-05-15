@@ -323,7 +323,7 @@ public class ClientUI extends JFrame implements Event {
 	log.log(Level.INFO, String.format("%s: %s", clientName, message));
 	addClient(clientName);
 	if (message != null && !message.isBlank()) {
-	    self.addMessage(String.format("%s: %s", clientName, message), Room.boldFont);
+	    self.addMessage(String.format("%s: %s", clientName, message), Room.commandFont);
 	}
     }
 
@@ -336,7 +336,7 @@ public class ClientUI extends JFrame implements Event {
 	    if (u.getName() == clientName) {
 		removeClient(u);
 		iter.remove();
-		self.addMessage(String.format("%s: %s", clientName, message), Room.boldFont);
+		self.addMessage(String.format("%s: %s", clientName, message), Room.commandFont);
 		break;
 	    }
 

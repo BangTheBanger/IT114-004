@@ -1,5 +1,6 @@
 package server;
 import java.io.Serializable;
+import java.awt.Font;
 
 public class Payload implements Serializable {
 
@@ -19,15 +20,21 @@ public class Payload implements Serializable {
     }
 
     private String message;
+    private Font style;
 
-    public void setMessage(String s) {
+    public void setMessage(String s, Font Style) {
 	this.message = s;
+	this.style = Style;
     }
 
     public String getMessage() {
 	return this.message;
     }
 
+    public Font getStyle() {
+	return this.style;
+    }
+	
     private PayloadType payloadType;
 
     public void setPayloadType(PayloadType pt) {

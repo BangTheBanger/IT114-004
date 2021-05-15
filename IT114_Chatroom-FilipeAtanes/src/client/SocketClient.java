@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 
 import server.Payload;
 import server.PayloadType;
+import server.Room;
 
 public enum SocketClient {
     INSTANCE; // see https://dzone.com/articles/java-singletons-using-enum "Making Singletons
@@ -31,7 +32,7 @@ public enum SocketClient {
 	Payload payload = new Payload();
 	payload.setPayloadType(PayloadType.MESSAGE);
 	payload.setClientName(clientName);
-	payload.setMessage(message);
+	payload.setMessage(message, Room.defaultFont);
 	return payload;
     }
 
@@ -220,21 +221,21 @@ public enum SocketClient {
     public void sendCreateRoom(String room) {
 	Payload p = new Payload();
 	p.setPayloadType(PayloadType.CREATE_ROOM);
-	p.setMessage(room);
+	p.setMessage(room, Room.defaultFont);
 	sendPayload(p);
     }
 
     public void sendJoinRoom(String room) {
 	Payload p = new Payload();
 	p.setPayloadType(PayloadType.JOIN_ROOM);
-	p.setMessage(room);
+	p.setMessage(room, Room.defaultFont);
 	sendPayload(p);
     }
 
     public void sendGetRooms(String query) {
 	Payload p = new Payload();
 	p.setPayloadType(PayloadType.GET_ROOMS);
-	p.setMessage(query);
+	p.setMessage(query, Room.defaultFont);
 	sendPayload(p);
     }
 

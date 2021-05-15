@@ -16,6 +16,7 @@ public class Room implements AutoCloseable {
     public final static Font defaultFont = new java.awt.Font("Consolas", 0, 12);
     public final static Font boldFont = new java.awt.Font("Consolas", Font.BOLD, 12);
     public final static Font italicFont = new java.awt.Font("Consolas", Font.ITALIC, 12);
+    public final static Font commandFont = new java.awt.Font("Consolas", Font.BOLD, 14);
     
     private final static Logger log = Logger.getLogger(Room.class.getName());
 
@@ -190,16 +191,16 @@ public class Room implements AutoCloseable {
 		    break;
 		case ROLL:
 			if ((Integer.parseInt(comm2[1]) < 1) || (comm2[1] != null)) {
-				try {sendMessage(client, boldFont, "You rolled the value: " + String.valueOf(roll(Integer.parseInt(comm2[1]))));
+				try {sendMessage(client, commandFont, "You rolled the value: " + String.valueOf(roll(Integer.parseInt(comm2[1]))));
 				} catch (Exception e) {e.printStackTrace();}
 			} else {
 				log.log(Level.INFO,"Debug message");
-				sendMessage(client, boldFont, "sendMessage");
+				sendMessage(client, commandFont, "sendMessage");
 			}
 		    wasCommand = true;
 		    break;
 		case FLIP:
-			sendMessage(client, boldFont, "You have flipped: " + flip());
+			sendMessage(client, commandFont, "You have flipped: " + flip());
 		    wasCommand = true;
 		    break;
 		}
@@ -222,6 +223,10 @@ public class Room implements AutoCloseable {
 		log.log(Level.INFO, "Removed client " + c.getId());
 	    }
 	}
+    }
+    
+    protected void sendCommand() {
+    	
     }
 
     /***

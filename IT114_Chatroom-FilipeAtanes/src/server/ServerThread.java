@@ -77,7 +77,7 @@ public class ServerThread extends Thread {
 	Payload payload = new Payload();
 	payload.setPayloadType(PayloadType.MESSAGE);
 	payload.setClientName(clientName);
-	payload.setMessage(message);
+	payload.setMessage(message, Room.defaultFont);
 
 	return sendPayload(payload);
     }
@@ -88,11 +88,11 @@ public class ServerThread extends Thread {
 	Payload payload = new Payload();
 	if (isConnect) {
 	    payload.setPayloadType(PayloadType.CONNECT);
-	    payload.setMessage(message);
+	    payload.setMessage(message, Room.commandFont);
 	}
 	else {
 	    payload.setPayloadType(PayloadType.DISCONNECT);
-	    payload.setMessage(message);
+	    payload.setMessage(message, Room.commandFont);
 	}
 	payload.setClientName(clientName);
 	return sendPayload(payload);
@@ -108,7 +108,7 @@ public class ServerThread extends Thread {
 	Payload payload = new Payload();
 	// using same payload type as a response trigger
 	payload.setPayloadType(PayloadType.GET_ROOMS);
-	payload.setMessage(room);
+	payload.setMessage(room, Room.defaultFont);
 	return sendPayload(payload);
     }
 
